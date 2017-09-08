@@ -1,1 +1,1 @@
-web: gunicorn protcode.wsgi --log-file -
+web: gunicorn Store.wsgi --log-file -
