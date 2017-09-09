@@ -1,0 +1,26 @@
+{% block anuncio %}
+
+<div class="div-left ">
+							
+
+								
+							{% if object_list %}
+
+							{% for new in object_list %}
+
+							<h5>{{ new.Titulo }}</h5>
+							<p> {{ new.text }}</p>
+
+							{% endfor %}
+
+							{% else %}
+
+							 <h2> No hay novedades </h2>
+
+							 {% endif %}
+
+                             
+
+							</div>
+
+{% endblock %}

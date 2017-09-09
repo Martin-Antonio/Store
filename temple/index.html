@@ -1,0 +1,209 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es">
+{% block head %}
+<head>
+<meta http-equiv="refresh" content="200">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{% static "css/estilo.css" %}" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+	<title>El varon</title><link rel="icon"  type='imagen/xicon'  href="{% static "img/logo/logo.png" %}" >
+	
+</head>
+{% endblock %}
+<body>
+{% block contend%}
+<div class="contenedor">
+   <div class='header'>
+            
+  
+		<header>
+          <div class="menu">
+          <nav  class="subpagina">
+
+          
+
+        		 <div class="logo"><a href="{% url 'inicio' %}"><img id="logo" src="{% static "img/logo/logo.png" %}" alt="logo de la pagina"><span>El varon Sport</span></a></div>
+
+
+					<img  class=" icon-search" src=" {% static "img/logo/enfocar.svg" %}" alt="lupa">
+        		 <div id="busqueda">
+        		 
+
+        		 	<form  action=''>
+        		 		<input type="search" placeholder="Buscar aqu&iacute;..." required="">
+        		 		<input id="button" type="submit" value="buscar" placeholder="enviar">
+
+        		 	</form>
+        		 	</div>
+        		 	
+
+		
+         <ul class="item">
+         	<li> <a href="{% url 'inicio' %}">Inicio</a></li>
+
+         	<li> <a href="{% url 'body' %}">Niños</a></li>
+
+         	<li> <a  data-fancybox="gallery" href={% static "img/logo/AVISO.png" %}  alt=" esto es una imagen del producto">Información</a></li>
+
+
+         	
+         </ul>
+          
+          	</nav>
+          	<div class="menu-decorador"></div>
+          
+
+		
+		</header>
+	</div>
+	
+			<section>
+			           
+
+
+
+							{% endblock %}
+
+                             {% block center %}
+
+                             <div class="div-center-up">
+
+                             {% if object_list %}
+								{% for article in object_list %}
+
+								 <img   data-fancybox="gallery" src= media/{{article.imagen1}} alt=" esto es una imagen del producto"></img>
+
+								{% endfor %}
+
+
+                                    {% endif %}
+                             	
+                             </div>
+                              {%block left%}
+		
+							<div class="div-left ">
+							
+                                <h1>Contactos.</h1>
+                                <p>Telefono:{{Shop_Men.Telefono}}</p>
+
+                                <p>Whatsapp: {{Shop_Men.Telefono}}</p>
+							
+							
+
+							</div>
+
+                          {% endblock %}
+
+							<div  class = "div-center ">
+
+								{% if object_list %}
+								{% for article in object_list %}
+								
+
+                                    
+                                   
+                                 <img   data-fancybox="gallery" src= media/{{article.imagen2}} alt=" esto es una imagen del producto"></img><img   data-fancybox="gallery" src= media/{{article.imagen3}} alt=" esto es una imagen del producto"></img><img   data-fancybox="gallery" src= media/{{article.imagen4}} alt=" esto es una imagen del producto"></img>
+                                  <h2>{{article.Nombre}}</h2>
+                                   <p>{{article.descripcion}} </p>
+                                  <p> Precio: {{article.Precio}}</p>
+                                 
+                                   {% endfor %}
+
+
+                                   {% else %}
+
+                                   <h1>No se encontraron articulos lo siento</h1>
+
+                                   {% endif %}
+									
+									{% if page_obj.has_previous %}
+									<a  class="button"  href="?page={{page_obj.previous_page_number}}"><button>Anterior</button></a>
+									
+
+									{% endif %}
+
+									{% if page_obj.has_next %}
+									<a class="button" href="?page={{page_obj.next_page_number}}"><button>Siguiente</button></a>
+							
+
+									{% endif %}
+							</div>
+							{% endblock %}
+
+
+
+
+
+
+
+                        {% block div-right %}
+
+
+
+							<div class="div-right ">
+							<p>Anuncios</p>
+								
+
+									<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+									<!-- TENIS_El_varon -->
+									<ins class="adsbygoogle"
+    								 style="display:block"
+								     data-ad-client="ca-pub-5789148953979849"
+								     data-ad-slot="7346224673"
+  								   data-ad-format="auto"></ins>
+								<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>
+
+
+
+							
+			
+
+							</div>
+
+
+
+							
+
+
+
+
+
+
+
+				</section>
+
+
+				<div class="pie">
+					
+                  <div class="pie-decorador"></div>
+				<footer>
+					
+               			<p>&#169;  Grapes 2017</p>
+
+				</footer>
+
+				</div>
+		
+		
+		</div>
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+{% endblock %}
+</body>
+</html
+
+
+
+
+
+
+
+
+

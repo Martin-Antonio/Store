@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+
+
+
+
+
+
+
+
+
+								
+
+{% block center %}
+
+
+
+								{% if object_list %}
+								{% for articulos in object_list %}
+
+                                   <p>{{articulos.Nombre}}</p>
+                                   
+                                   <img src= media/{{artiticulos.imagen1}} alt=" esto es una imagen del producto"></img>
+                                   <p> Precio: {{articulos.Precio}}</p>
+                                  
+                                 
+                                   {% endfor %}
+
+
+                                   {% else %}
+
+                                   <h1>No se encontraron articulos lo siento</h1>
+
+                                   {% endif %}
+									
+									{% if page_obj.has_previous %}
+									<a  class="button"  href="?page={{page_obj.previous_page_number}}">Anterior</a>
+									
+
+									{% endif %}
+
+									{% if page_obj.has_next %}
+									<a class="button" href="?page={{page_obj.next_page_number}}">Siguiente</a>
+							
+
+									{% endif %}
+
+				
+								{% endblock %}
